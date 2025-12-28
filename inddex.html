@@ -1,0 +1,1266 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SPOTY TIKTOK BAN</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0a0a0a;
+            color: white;
+            font-family: 'Courier New', monospace;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Watermark Overlay */
+        .watermark {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: repeating-linear-gradient(
+                0deg,
+                rgba(255, 215, 0, 0.03) 0px,
+                rgba(255, 215, 0, 0.03) 1px,
+                transparent 1px,
+                transparent 40px
+            );
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .watermark-text {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) rotate(-45deg);
+            font-size: 100px;
+            color: rgba(255, 215, 0, 0.08);
+            white-space: nowrap;
+            pointer-events: none;
+            z-index: 1;
+            font-weight: bold;
+            letter-spacing: 15px;
+        }
+
+        /* Scanner Line Animation */
+        .scanner-line {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: linear-gradient(90deg, 
+                transparent, 
+                rgba(0, 255, 65, 0.8), 
+                transparent);
+            animation: scan 3s linear infinite;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        @keyframes scan {
+            0% { top: 0%; }
+            100% { top: 100%; }
+        }
+
+        /* Crime Scene Tape Decorations */
+        .crime-tape {
+            position: fixed;
+            background: repeating-linear-gradient(
+                45deg,
+                #ffd700,
+                #ffd700 20px,
+                #000000 20px,
+                #000000 40px
+            );
+            z-index: 2;
+            pointer-events: none;
+            opacity: 0.7;
+        }
+
+        .tape-top {
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            transform: rotate(1deg);
+        }
+
+        .tape-bottom {
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 25px;
+            transform: rotate(-1deg);
+        }
+
+        .tape-left {
+            left: 0;
+            top: 0;
+            height: 100%;
+            width: 25px;
+            writing-mode: vertical-rl;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 5px;
+            font-size: 12px;
+        }
+
+        .tape-right {
+            right: 0;
+            top: 0;
+            height: 100%;
+            width: 25px;
+            writing-mode: vertical-rl;
+            text-align: center;
+            color: black;
+            font-weight: bold;
+            letter-spacing: 2px;
+            padding: 5px;
+            font-size: 12px;
+        }
+
+        /* Security Clearance Indicator */
+        .security-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: linear-gradient(45deg, #0047ab, #1e90ff);
+            color: #ffd700;
+            padding: 8px 15px;
+            border: 2px solid #ffd700;
+            font-size: 12px;
+            font-weight: bold;
+            z-index: 3;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Main Container */
+        .container {
+            width: 90%;
+            max-width: 800px;
+            border: 2px solid #ffd700;
+            background-color: rgba(10, 46, 54, 0.95);
+            padding: 20px;
+            position: relative;
+            z-index: 3;
+        }
+
+        /* Emergency Flash Animation */
+        @keyframes emergency-flash {
+            0%, 100% { background-color: #0a2e36; }
+            50% { background-color: rgba(139, 0, 0, 0.5); }
+        }
+
+        .emergency-mode {
+            animation: emergency-flash 0.5s 3;
+        }
+
+        /* Header */
+        .header {
+            background-color: #8b0000;
+            color: #ffd700;
+            padding: 15px;
+            text-align: center;
+            border: 1px dashed #ffd700;
+            margin-bottom: 20px;
+            font-size: 24px;
+            font-weight: bold;
+            position: relative;
+        }
+
+        .header::before {
+            content: "⚡";
+            position: absolute;
+            left: 20px;
+        }
+
+        .header::after {
+            content: "⚡";
+            position: absolute;
+            right: 20px;
+        }
+
+        /* Input Section */
+        .input-section {
+            background-color: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            margin-bottom: 20px;
+            border-left: 3px solid #00ff41;
+            position: relative;
+        }
+
+        .input-section::before {
+            content: "TARGET ID";
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #8b0000;
+            color: white;
+            padding: 5px 10px;
+            font-size: 10px;
+            letter-spacing: 1px;
+        }
+
+        .input-label {
+            color: #00ff41;
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .username-input {
+            width: 100%;
+            padding: 15px;
+            background-color: black;
+            color: #00ff41;
+            border: 2px solid #ffd700;
+            font-size: 16px;
+            text-align: center;
+            font-family: 'Courier New', monospace;
+            letter-spacing: 2px;
+        }
+
+        .username-input:focus {
+            outline: none;
+            box-shadow: 0 0 10px #00ff41;
+        }
+
+        /* Offense Selection */
+        .offense-selection {
+            margin: 15px 0;
+        }
+
+        .offense-options {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+            gap: 10px;
+            margin-top: 10px;
+        }
+
+        .offense-option {
+            background-color: rgba(0, 0, 0, 0.5);
+            border: 2px solid #ffd700;
+            padding: 12px;
+            cursor: pointer;
+            text-align: center;
+            transition: all 0.3s;
+            font-size: 14px;
+        }
+
+        .offense-option:hover {
+            background-color: rgba(0, 71, 171, 0.3);
+            transform: scale(1.05);
+        }
+
+        .offense-option.selected {
+            background-color: #0047ab;
+            border-color: #00ff41;
+            color: #00ff41;
+        }
+
+        /* Instruction Text */
+        .instruction-text {
+            color: #ffd700;
+            margin-top: 10px;
+            font-size: 14px;
+            text-align: center;
+            padding: 5px;
+            background-color: rgba(139, 0, 0, 0.3);
+            border: 1px dashed #ffd700;
+        }
+
+        /* Ban Button */
+        .ban-button {
+            background: linear-gradient(45deg, #8b0000, #ff0000);
+            color: white;
+            border: 2px solid #ffd700;
+            padding: 20px 40px;
+            font-size: 24px;
+            cursor: pointer;
+            width: 100%;
+            margin: 20px 0;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ban-button:hover {
+            background: linear-gradient(45deg, #ff0000, #8b0000);
+            transform: scale(1.01);
+        }
+
+        .ban-button::before {
+            content: "⚡";
+            position: absolute;
+            left: 20px;
+        }
+
+        .ban-button::after {
+            content: "⚡";
+            position: absolute;
+            right: 20px;
+        }
+
+        /* Report Display */
+        .report-display {
+            background-color: rgba(0, 0, 0, 0.9);
+            padding: 20px;
+            margin: 20px 0;
+            border: 2px solid #0047ab;
+            display: none;
+            max-height: 400px;
+            overflow-y: auto;
+            position: relative;
+            border-left: 10px solid #0047ab;
+        }
+
+        .report-display::before {
+            content: "BAN REQUEST";
+            position: absolute;
+            top: -12px;
+            left: 20px;
+            background-color: #0047ab;
+            color: white;
+            padding: 5px 15px;
+            font-size: 11px;
+            letter-spacing: 2px;
+        }
+
+        .report-title {
+            color: #00ff41;
+            margin-bottom: 15px;
+            font-size: 18px;
+            border-bottom: 1px solid #0047ab;
+            padding-bottom: 10px;
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: none;
+            gap: 15px;
+            margin: 20px 0;
+        }
+
+        .action-btn {
+            flex: 1;
+            padding: 15px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            font-weight: bold;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .copy-btn {
+            background-color: #0047ab;
+            color: white;
+            border: 1px solid #ffd700;
+        }
+
+        .copy-btn:hover {
+            background-color: #1e90ff;
+        }
+
+        .email-btn {
+            background-color: #228b22;
+            color: white;
+            border: 1px solid #00ff41;
+        }
+
+        .email-btn:hover {
+            background-color: #32cd32;
+        }
+
+        /* Status Bar */
+        .status-bar {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px;
+            margin-top: 20px;
+            border-top: 1px solid #ffd700;
+            font-size: 12px;
+            color: #00ff41;
+            display: flex;
+            justify-content: space-between;
+            position: relative;
+        }
+
+        .status-bar::before {
+            content: "STATUS:";
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            background-color: #0047ab;
+            padding: 0 10px;
+            font-size: 10px;
+        }
+
+        /* Disclaimer */
+        .disclaimer {
+            background-color: rgba(139, 0, 0, 0.3);
+            padding: 15px;
+            margin-top: 20px;
+            border: 1px solid #8b0000;
+            font-size: 12px;
+            color: #ccc;
+            position: relative;
+        }
+
+        .disclaimer::before {
+            content: "NOTICE";
+            position: absolute;
+            top: -8px;
+            left: 10px;
+            background-color: #8b0000;
+            padding: 0 10px;
+            font-size: 10px;
+            color: #ffd700;
+        }
+
+        /* Confidential Stamp */
+        .confidential-stamp {
+            position: fixed;
+            bottom: 20px;
+            left: 20px;
+            color: rgba(255, 215, 0, 0.3);
+            font-size: 14px;
+            transform: rotate(-45deg);
+            z-index: 1;
+            pointer-events: none;
+            font-weight: bold;
+        }
+
+        /* Format Warning */
+        .format-warning {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: #8b0000;
+            color: #ffd700;
+            padding: 20px;
+            border: 3px solid #ffd700;
+            z-index: 10000;
+            display: none;
+            text-align: center;
+            max-width: 400px;
+            font-family: 'Courier New', monospace;
+        }
+
+        .format-warning h3 {
+            margin-bottom: 15px;
+            color: #ff0000;
+        }
+
+        .format-warning p {
+            margin-bottom: 10px;
+        }
+
+        .format-warning button {
+            background-color: #0047ab;
+            color: white;
+            border: 2px solid #ffd700;
+            padding: 10px 20px;
+            margin-top: 15px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <!-- Watermark Overlay -->
+    <div class="watermark"></div>
+    <div class="watermark-text">SPOTY BAN</div>
+    
+    <!-- Scanner Line -->
+    <div class="scanner-line"></div>
+    
+    <!-- Crime Scene Tape -->
+    <div class="crime-tape tape-top">SPOTY BAN • SPOTY BAN</div>
+    <div class="crime-tape tape-bottom">TIKTOK • TIKTOK • TIKTOK</div>
+    <div class="crime-tape tape-left">BAN SYSTEM</div>
+    <div class="crime-tape tape-right">ACCOUNT REMOVAL</div>
+    
+    <!-- Security Clearance Indicator -->
+    <div class="security-indicator">SPOTY BAN SYSTEM</div>
+    
+    <!-- Confidential Stamp -->
+    <div class="confidential-stamp">SPOTY BAN // TIKTOK</div>
+    
+    <!-- Format Warning Popup -->
+    <div class="format-warning" id="formatWarning">
+        <h3>⚠️ FORMAT WARNING ⚠️</h3>
+        <p><strong>IMPORTANT:</strong> Please enter the username WITHOUT the "@" symbol!</p>
+        <p>Example: <strong>username123</strong> (not @username123)</p>
+        <p>The system will automatically add the "@" when creating the ban request.</p>
+        <button onclick="closeFormatWarning()">UNDERSTOOD</button>
+    </div>
+    
+    <!-- Main Container -->
+    <div class="container" id="mainContainer">
+        <div class="header">
+            SPOTY TIKTOK BAN
+        </div>
+        
+        <div class="input-section">
+            <div class="input-label">ENTER TARGET USERNAME:</div>
+            <input type="text" 
+                   id="usernameInput" 
+                   class="username-input" 
+                   placeholder="username123 (NO @ SYMBOL)"
+                   autocomplete="off"
+                   spellcheck="false">
+            <div class="instruction-text">
+                ⚠️ IMPORTANT: Type username WITHOUT "@" symbol ⚠️
+            </div>
+            
+            <div class="offense-selection">
+                <div class="input-label">SELECT OFFENSE TYPE:</div>
+                <div class="offense-options">
+                    <div class="offense-option" data-offense="child-exploitation" onclick="selectOffense('child-exploitation')">
+                        🚨 CHILD EXPLOITATION
+                    </div>
+                    <div class="offense-option" data-offense="sexual-harassment" onclick="selectOffense('sexual-harassment')">
+                        ⚖️ SEXUAL HARASSMENT
+                    </div>
+                    <div class="offense-option" data-offense="cyberbullying" onclick="selectOffense('cyberbullying')">
+                        💀 CYBERBULLYING
+                    </div>
+                    <div class="offense-option" data-offense="hate-speech" onclick="selectOffense('hate-speech')">
+                        🗣️ HATE SPEECH
+                    </div>
+                    <div class="offense-option" data-offense="scam-fraud" onclick="selectOffense('scam-fraud')">
+                        🕵️ SCAM/FRAUD
+                    </div>
+                    <div class="offense-option" data-offense="impersonation" onclick="selectOffense('impersonation')">
+                        🎭 IMPERSONATION
+                    </div>
+                    <div class="offense-option" data-offense="violent-content" onclick="selectOffense('violent-content')">
+                        ⚔️ VIOLENT CONTENT
+                    </div>
+                    <div class="offense-option" data-offense="spam-bot" onclick="selectOffense('spam-bot')">
+                        🤖 SPAM/BOT ACTIVITY
+                    </div>
+                </div>
+                <div class="instruction-text" id="offenseStatus">
+                    Select an offense type above
+                </div>
+            </div>
+        </div>
+        
+        <button class="ban-button" onclick="banUser()" id="banButton">
+            BAN USER
+        </button>
+        
+        <div class="report-display" id="reportDisplay">
+            <div class="report-title">SPOTY BAN REQUEST</div>
+            <div id="reportContent"></div>
+        </div>
+        
+        <div class="action-buttons" id="actionButtons">
+            <button class="action-btn copy-btn" onclick="copyToClipboard()">
+                COPY BAN REQUEST
+            </button>
+            <button class="action-btn email-btn" onclick="sendEmail()">
+                SUBMIT TO TIKTOK
+            </button>
+        </div>
+        
+        <div class="disclaimer">
+            SPOTY TIKTOK BAN is for reporting serious violations only. Reports are sent to TikTok's safety team. False reporting violates platform terms and may be illegal.
+            <br><br>
+            <strong>FORMAT NOTE:</strong> Usernames should be entered WITHOUT the "@" symbol. The system automatically formats it correctly for reports.
+        </div>
+        
+        <div class="status-bar">
+            <span id="statusText">SYSTEM: READY</span>
+            <span id="timeDisplay">--:--:--</span>
+        </div>
+    </div>
+
+    <script>
+        // Show format warning on first visit
+        document.addEventListener('DOMContentLoaded', function() {
+            if (!localStorage.getItem('formatWarningShown')) {
+                setTimeout(() => {
+                    document.getElementById('formatWarning').style.display = 'block';
+                }, 500);
+            }
+            updateTime();
+            setInterval(updateTime, 1000);
+        });
+
+        function closeFormatWarning() {
+            document.getElementById('formatWarning').style.display = 'none';
+            localStorage.setItem('formatWarningShown', 'true');
+        }
+
+        // Offense Messages Database
+        const offenseMessages = {
+            "child-exploitation": [
+                `SPOTY BAN REQUEST: URGENT ACCOUNT TERMINATION
+================================
+ACCOUNT: @{username}
+OFFENSE: Child Sexual Exploitation Material (CSEM)
+SEVERITY: CRITICAL
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Trust & Safety Command Center
+
+The account @{username} is actively distributing child sexual abuse material and engaging in predatory grooming behavior targeting minors on your platform.
+
+EVIDENCE OF VIOLATIONS:
+✓ Distribution of CSAM content
+✓ Grooming communications with minors
+✓ Age deception tactics
+✓ Platform safety feature circumvention
+
+SPOTY BAN ACTIONS REQUIRED:
+1. Permanent account termination
+2. IP address ban across all TikTok services
+3. Full data preservation for law enforcement
+4. NCMEC CyberTipline notification within 24 hours
+5. Cross-platform alert to other social networks
+
+This account represents an immediate and ongoing threat to child safety. Every minute it remains active increases victimization risk.`,
+
+                `SPOTY BAN: CHILD EXPLOITATION NETWORK
+================================
+TARGET: @{username}
+VIOLATION: Organized Child Predation
+PRIORITY: MAXIMUM
+TIME: {timestamp}
+================================
+
+ATTENTION: TikTok Legal & Safety Department
+
+Account @{username} has been identified as operating within a systematic child exploitation network utilizing your platform for illegal activities.
+
+DETAILED FINDINGS:
+• Coordination with other predator accounts
+• Use of encrypted communication methods
+• Distribution networks for illegal content
+• Financial solicitation from minors
+
+MANDATORY LEGAL RESPONSE:
+Under federal and international child protection laws, immediate action is required:
+1. Complete account data preservation for authorities
+2. Immediate platform-wide suspension
+3. Law enforcement agency notification
+4. Victim identification protocols
+
+Failure to act constitutes platform complicity in ongoing criminal enterprise.`
+            ],
+
+            "sexual-harassment": [
+                `SPOTY BAN REQUEST: SEXUAL HARASSMENT
+================================
+ACCOUNT: @{username}
+OFFENSE: Systematic Sexual Harassment
+SEVERITY: HIGH
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Safety Operations
+
+Account @{username} is engaged in persistent sexual harassment of multiple users, creating a toxic environment that violates platform safety standards.
+
+DOCUMENTED BEHAVIORS:
+- Unwanted sexual advances in comments/DMs
+- Non-consensual sexual imagery sharing
+- Coercive behavior and pressure tactics
+- Multiple victim reports confirmed
+
+REQUIRED ACTIONS:
+1. Permanent account termination
+2. Content review and removal
+3. User protection measures
+4. Prevention of account recreation
+
+This behavior creates an unsafe environment and violates TikTok's Community Guidelines on sexual harassment.`,
+
+                `SPOTY BAN: SEXUAL MISCONDUCT
+================================
+USER: @{username}
+VIOLATION: Sexual Coercion & Harassment
+PRIORITY: URGENT
+DATE: {timestamp}
+================================
+
+ATTENTION: Platform Moderation Team
+
+Account @{username} demonstrates patterns of sexual misconduct including:
+
+SPECIFIC VIOLATIONS:
+✓ Unwanted explicit content sharing
+✓ Sexual coercion attempts
+✓ Harassment across multiple interactions
+✓ Privacy boundary violations
+
+PLATFORM RESPONSE REQUIRED:
+• Immediate account suspension
+• Victim support coordination
+• Safety feature implementation
+• Behavioral pattern analysis
+
+This account's continued presence threatens user safety and platform integrity.`
+            ],
+
+            "cyberbullying": [
+                `SPOTY BAN REQUEST: CYBERBULLYING
+================================
+ACCOUNT: @{username}
+OFFENSE: Organized Bullying Campaign
+SEVERITY: HIGH
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Community Safety Team
+
+Account @{username} is leading organized bullying campaigns targeting vulnerable users, resulting in documented psychological harm.
+
+BULLYING TACTICS:
+- Coordinated harassment across multiple accounts
+- Personal information sharing (doxxing)
+- Mental health exploitation
+- Suicide baiting and encouragement
+
+IMMEDIATE INTERVENTION:
+1. Permanent ban with prejudice
+2. Bullying network disruption
+3. Victim support services
+4. Educational resource distribution
+
+This account's behavior violates anti-bullying policies and creates dangerous environments for users.`,
+
+                `SPOTY BAN: SYSTEMIC BULLYING
+================================
+TARGET: @{username}
+VIOLATION: Severe Cyberbullying
+PRIORITY: URGENT
+TIME: {timestamp}
+================================
+
+PLATFORM SAFETY ALERT:
+
+Account @{username} engages in systematic bullying with demonstrated impact on victim mental health:
+
+DOCUMENTED IMPACT:
+• Multiple suicide risk reports
+• Victim school/work disruption
+• Mental health crisis creation
+• Community safety compromise
+
+SAFETY PROTOCOLS:
+1. Immediate account termination
+2. Crisis intervention activation
+3. Support network notification
+4. Prevention program implementation
+
+This represents clear violation of platform duty of care responsibilities.`
+            ],
+
+            "hate-speech": [
+                `SPOTY BAN REQUEST: HATE SPEECH
+================================
+ACCOUNT: @{username}
+OFFENSE: Organized Hate Speech
+SEVERITY: HIGH
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Content Moderation
+
+Account @{username} is distributing hate speech content targeting protected groups, violating platform policies and creating dangerous environments.
+
+HATE SPEECH CATEGORIES:
+- Racial discrimination and slurs
+- Religious intolerance
+- LGBTQ+ targeted harassment
+- Xenophobic content distribution
+
+REQUIRED RESPONSE:
+1. Permanent content removal
+2. Account termination
+3. Hate speech pattern analysis
+4. Community safety review
+
+This content violates hate speech policies and promotes discrimination.`,
+
+                `SPOTY BAN: HATE PROPAGATION
+================================
+USER: @{username}
+VIOLATION: Systematic Discrimination
+PRIORITY: MEDIUM-HIGH
+DATE: {timestamp}
+================================
+
+CONTENT MODERATION NOTICE:
+
+Account @{username} systematically promotes discriminatory ideologies through:
+
+CONTENT ANALYSIS:
+• Racial supremacy content
+• Religious intolerance campaigns
+• Gender-based discrimination
+• Protected group targeting
+
+PLATFORM ACTION:
+• Complete content removal
+• Account termination
+• Algorithm flagging
+• Community guideline enforcement
+
+This account undermines platform commitment to inclusive, safe environments.`
+            ],
+
+            "scam-fraud": [
+                `SPOTY BAN REQUEST: FRAUDULENT ACTIVITY
+================================
+ACCOUNT: @{username}
+OFFENSE: Financial Scam Operations
+SEVERITY: HIGH
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Security & Fraud Prevention
+
+Account @{username} is operating financial scams targeting users through deceptive practices and fraudulent schemes.
+
+SCAM TYPES IDENTIFIED:
+- Fake investment opportunities
+- Phishing link distribution
+- Identity theft attempts
+- Financial credential harvesting
+
+SECURITY MEASURES REQUIRED:
+1. Immediate account suspension
+2. Financial fraud investigation
+3. User warning notifications
+4. Law enforcement coordination
+
+This account represents ongoing financial risk to TikTok users.`,
+
+                `SPOTY BAN: SCAM NETWORK
+================================
+TARGET: @{username}
+VIOLATION: Organized Fraud Scheme
+PRIORITY: HIGH
+TIME: {timestamp}
+================================
+
+FRAUD PREVENTION ALERT:
+
+Account @{username} operates as part of coordinated scam network:
+
+FRAUD METHODOLOGY:
+• Fake giveaways and contests
+• Credential phishing operations
+• Financial misinformation
+• User data harvesting
+
+REQUIRED ACTIONS:
+• Account termination
+• Fraud pattern analysis
+• User protection alerts
+• Security protocol review
+
+This account compromises platform security and user financial safety.`
+            ],
+
+            "impersonation": [
+                `SPOTY BAN REQUEST: IDENTITY IMPERSONATION
+================================
+ACCOUNT: @{username}
+OFFENSE: Fake Identity & Impersonation
+SEVERITY: MEDIUM-HIGH
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Account Integrity Team
+
+Account @{username} is impersonating another individual/entity, creating confusion and potential harm through identity deception.
+
+IMPERSONATION DETAILS:
+- Fake celebrity/creator account
+- Identity theft for fraudulent purposes
+- Misrepresentation causing harm
+- Verified account imitation attempts
+
+ACTION REQUIRED:
+1. Immediate account verification
+2. Impersonation content removal
+3. Identity confirmation procedures
+4. Prevention measures implementation
+
+This violates impersonation policies and creates user confusion.`,
+
+                `SPOTY BAN: IDENTITY FRAUD
+================================
+USER: @{username}
+VIOLATION: Systematic Impersonation
+PRIORITY: MEDIUM
+DATE: {timestamp}
+================================
+
+ACCOUNT INTEGRITY NOTICE:
+
+Account @{username} engages in identity deception through:
+
+DECEPTION METHODS:
+• Celebrity/figure impersonation
+• Verified account imitation
+• Identity theft for gain
+• Misrepresentation tactics
+
+INTEGRITY RESPONSE:
+• Account suspension pending verification
+• Impersonation content review
+• User notification procedures
+• Prevention protocol activation
+
+This compromises platform trust and user identity security.`
+            ],
+
+            "violent-content": [
+                `SPOTY BAN REQUEST: VIOLENT CONTENT
+================================
+ACCOUNT: @{username}
+OFFENSE: Violent/Graphic Material
+SEVERITY: HIGH
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Content Safety Team
+
+Account @{username} is distributing violent/graphic content that violates platform safety standards and community guidelines.
+
+CONTENT CATEGORIES:
+- Graphic violence and gore
+- Harmful/challenge promotion
+- Dangerous behavior encouragement
+- Weapons/combat glorification
+
+SAFETY MEASURES:
+1. Immediate content removal
+2. Account termination review
+3. User protection protocols
+4. Content moderation enhancement
+
+This content violates violence policies and creates unsafe viewing environments.`,
+
+                `SPOTY BAN: HARM PROMOTION
+================================
+TARGET: @{username}
+VIOLATION: Dangerous Content Distribution
+PRIORITY: HIGH
+TIME: {timestamp}
+================================
+
+CONTENT SAFETY ALERT:
+
+Account @{username} promotes harmful behavior through:
+
+DANGEROUS CONTENT:
+• Self-harm/suicide encouragement
+• Violence glorification
+• Dangerous challenge promotion
+• Harmful ideology distribution
+
+SAFETY RESPONSE:
+• Content removal protocol
+• Account termination review
+• Crisis resource provision
+• Safety feature implementation
+
+This violates content safety standards and user protection policies.`
+            ],
+
+            "spam-bot": [
+                `SPOTY BAN REQUEST: BOT/SPAM NETWORK
+================================
+ACCOUNT: @{username}
+OFFENSE: Automated Spam Activity
+SEVERITY: MEDIUM
+TIMESTAMP: {timestamp}
+================================
+
+To: TikTok Anti-Spam Operations
+
+Account @{username} exhibits clear bot/spam behavior compromising platform integrity and user experience.
+
+SPAM INDICATORS:
+- Automated comment/post patterns
+- Mass duplicate content
+- Link farming operations
+- Engagement manipulation
+
+AUTOMATED RESPONSE:
+1. Bot detection confirmation
+2. Spam content removal
+3. Account termination
+4. Network analysis
+
+This account violates spam policies and compromises platform quality.`,
+
+                `SPOTY BAN: AUTOMATED VIOLATIONS
+================================
+USER: @{username}
+VIOLATION: Systematic Spam Operations
+PRIORITY: MEDIUM
+DATE: {timestamp}
+================================
+
+PLATFORM INTEGRITY NOTICE:
+
+Account @{username} operates as automated spam account:
+
+AUTOMATION EVIDENCE:
+• Patterned posting intervals
+• Duplicate content distribution
+• Engagement manipulation
+• Network coordination
+
+INTEGRITY MEASURES:
+• Bot detection implementation
+• Spam network disruption
+• Content quality maintenance
+• User experience protection
+
+This compromises platform integrity and violates automation policies.`
+            ]
+        };
+
+        // Global variables
+        let currentReport = null;
+        let selectedOffense = null;
+
+        // Offense selection function
+        function selectOffense(offenseType) {
+            selectedOffense = offenseType;
+            
+            // Update UI
+            document.querySelectorAll('.offense-option').forEach(option => {
+                option.classList.remove('selected');
+            });
+            
+            document.querySelector(`[data-offense="${offenseType}"]`).classList.add('selected');
+            
+            // Update status
+            const offenseNames = {
+                'child-exploitation': 'CHILD EXPLOITATION',
+                'sexual-harassment': 'SEXUAL HARASSMENT',
+                'cyberbullying': 'CYBERBULLYING',
+                'hate-speech': 'HATE SPEECH',
+                'scam-fraud': 'SCAM/FRAUD',
+                'impersonation': 'IMPERSONATION',
+                'violent-content': 'VIOLENT CONTENT',
+                'spam-bot': 'SPAM/BOT ACTIVITY'
+            };
+            
+            document.getElementById('offenseStatus').textContent = `✅ Selected: ${offenseNames[offenseType]}`;
+            document.getElementById('offenseStatus').style.color = '#00ff41';
+        }
+
+        function banUser() {
+            const username = document.getElementById('usernameInput').value.trim();
+            
+            // Validation
+            if (!username) {
+                showNotification('⚠️ Please enter a username');
+                document.getElementById('usernameInput').focus();
+                return;
+            }
+            
+            if (!selectedOffense) {
+                showNotification('⚠️ Please select an offense type');
+                return;
+            }
+            
+            // Check if username contains @ symbol and show warning
+            if (username.includes('@')) {
+                showNotification('❌ Remove "@" symbol from username!');
+                document.getElementById('usernameInput').value = username.replace('@', '');
+                document.getElementById('usernameInput').focus();
+                return;
+            }
+            
+            // Trigger emergency flash animation
+            document.getElementById('mainContainer').classList.add('emergency-mode');
+            
+            // Clean username (remove any @ just in case)
+            const cleanUsername = username.replace('@', '');
+            
+            // Get messages for selected offense
+            const offenseMessagesList = offenseMessages[selectedOffense];
+            const randomMessage = offenseMessagesList[Math.floor(Math.random() * offenseMessagesList.length)];
+            
+            // Get timestamp
+            const timestamp = new Date().toLocaleString('en-US', {
+                hour12: false,
+                year: 'numeric',
+                month: '2-digit',
+                day: '2-digit',
+                hour: '2-digit',
+                minute: '2-digit',
+                second: '2-digit'
+            });
+            
+            // Replace placeholders
+            let finalReport = randomMessage.replace(/{username}/g, '@' + cleanUsername);
+            finalReport = finalReport.replace(/{timestamp}/g, timestamp);
+            
+            // Add report ID
+            const reportId = 'SPOTY-' + Date.now().toString().slice(-8);
+            const fullReport = `SPOTY BAN REQUEST ID: ${reportId}\n${finalReport}\n\n---\nGenerated via SPOTY TIKTOK BAN System`;
+            
+            // Display report
+            document.getElementById('reportContent').textContent = fullReport;
+            document.getElementById('reportDisplay').style.display = 'block';
+            document.getElementById('actionButtons').style.display = 'flex';
+            
+            // Update status
+            const offenseDisplay = selectedOffense.toUpperCase().replace('-', ' ');
+            document.getElementById('statusText').textContent = `SPOTY SYSTEM: ${offenseDisplay} BAN`;
+            document.getElementById('banButton').textContent = 'BAN REQUEST GENERATED ✓';
+            document.getElementById('banButton').style.background = 'linear-gradient(45deg, #006400, #008000)';
+            
+            // Store for email
+            currentReport = {
+                subject: `SPOTY BAN: ${offenseDisplay.toUpperCase()} VIOLATION - @${cleanUsername}`,
+                body: fullReport,
+                username: cleanUsername,
+                reportId: reportId,
+                offense: selectedOffense
+            };
+            
+            // Remove emergency flash after animation completes
+            setTimeout(() => {
+                document.getElementById('mainContainer').classList.remove('emergency-mode');
+            }, 1500);
+            
+            // Show success notification
+            setTimeout(() => {
+                showNotification(`✅ SPOTY BAN request generated for ${offenseDisplay} violation`);
+            }, 100);
+        }
+
+        function copyToClipboard() {
+            if (!currentReport) {
+                showNotification('❌ Generate a SPOTY BAN request first');
+                return;
+            }
+            
+            const reportText = document.getElementById('reportContent').textContent;
+            navigator.clipboard.writeText(reportText).then(() => {
+                showNotification('✅ SPOTY BAN request copied to clipboard');
+                
+                // Visual feedback
+                const copyBtn = document.querySelector('.copy-btn');
+                copyBtn.textContent = 'COPIED ✓';
+                setTimeout(() => {
+                    copyBtn.textContent = 'COPY BAN REQUEST';
+                }, 2000);
+            }).catch(err => {
+                showNotification('❌ Copy failed - select text manually');
+            });
+        }
+
+        function sendEmail() {
+            if (!currentReport) {
+                showNotification('❌ Generate a SPOTY BAN request first');
+                return;
+            }
+            
+            const subject = encodeURIComponent(currentReport.subject);
+            const body = encodeURIComponent(currentReport.body);
+            
+            window.open(`mailto:safety@tiktok.com?cc=legal@tiktok.com,abuse@tiktok.com&subject=${subject}&body=${body}`);
+            
+            showNotification('✉️ SPOTY BAN request submitted to TikTok');
+            
+            // Visual feedback
+            const emailBtn = document.querySelector('.email-btn');
+            emailBtn.textContent = 'REQUEST SENT';
+            setTimeout(() => {
+                emailBtn.textContent = 'SUBMIT TO TIKTOK';
+            }, 2000);
+        }
+
+        // Simple notification system
+        function showNotification(message) {
+            // Create notification element
+            const notification = document.createElement('div');
+            notification.textContent = message;
+            notification.style.cssText = `
+                position: fixed;
+                top: 20px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: #0047ab;
+                color: white;
+                padding: 10px 20px;
+                border: 2px solid #ffd700;
+                z-index: 1000;
+                font-family: 'Courier New', monospace;
+                font-size: 14px;
+                opacity: 0.9;
+            `;
+            
+            document.body.appendChild(notification);
+            
+            // Remove after 3 seconds
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+
+        // Update time display
+        function updateTime() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-US', {hour12: false});
+            document.getElementById('timeDisplay').textContent = timeString;
+        }
+
+        // Enter key support
+        document.getElementById('usernameInput').addEventListener('keypress', function(e) {
+            if (e.key === 'Enter') {
+                banUser();
+            }
+        });
+
+        // Auto-select text when clicking input
+        document.getElementById('usernameInput').addEventListener('click', function() {
+            this.select();
+        });
+
+        // Check for @ symbol on input and show warning
+        document.getElementById('usernameInput').addEventListener('input', function() {
+            if (this.value.includes('@')) {
+                this.style.borderColor = '#ff0000';
+                this.style.boxShadow = '0 0 10px #ff0000';
+            } else {
+                this.style.borderColor = '#ffd700';
+                this.style.boxShadow = 'none';
+            }
+        });
+    </script>
+</body>
+</html>
